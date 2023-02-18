@@ -6,7 +6,7 @@
         <title>Document</title>
     </head>
     
-    <body>
+    <!-- <body>
         <div id="content"></div>
     
         <script>
@@ -15,7 +15,23 @@
                 .then(data => {
                     document.getElementById("content").innerText = data; // = data["people"] or = data.people
                 });
-        </script>
+        </script>-->
+
+        <!-- promise  -->
+        <body>
+            <div id="content"></div>
+        
+            <script>
+                fetch("https://ci-swapi.herokuapp.com/api/")
+                    .then(response => response.text()) // or .json()
+                    .then(data => {
+                        document.getElementById("content").innerText = data;
+                    })
+                    .catch((e) => {
+                        console.log("Error: ", e);
+                    })
+            </script>
+        </body>
     </body>
     
 </html>
