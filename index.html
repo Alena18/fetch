@@ -15,10 +15,11 @@
                 .then(data => {
                     document.getElementById("content").innerText = data; // = data["people"] or = data.people
                 });
-        </script>-->
+        </script>
+    </body>-->
 
         <!-- promise  -->
-        <body>
+        <!-- <body>
             <div id="content"></div>
         
             <script>
@@ -31,7 +32,21 @@
                         console.log("Error: ", e);
                     })
             </script>
-        </body>
-    </body>
+            </body> -->
+    <body>
+        <div id="content"></div>
     
+        <script>
+            fetch("https://ci-swapi.herokuapp.com/api/")
+                .then(response => response.text()) // or .json()
+                .then(data => displayData(data))
+                .catch((e) => {
+                    console.log("Error: ", e);
+                })
+    
+            function displayData(data) {
+                document.getElementById("content").innerText = data;
+            }
+        </script>
+    </body>
 </html>
